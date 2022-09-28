@@ -6,7 +6,9 @@ function App() {
     <div className="App">
       <Greet name='Bruce' heroName = 'Batman' />
       <Greet name='Clark' heroName = 'Superman'/>
-      <Greet name='Diana' heroName = 'Wonder Woman'/>
+      <Greet name='Diana' heroName = 'Wonder Woman'>
+        <p>This is children props</p>
+      </Greet>
     </div>
   );
 }
