@@ -1,3 +1,3 @@
-export const Greet = () => {
-    return <h1>Hello Geovanny {2 * 2}</h1>
+export const Greet = (props) => {
+    return <h1>Hello {props.name} a.k.a. {props.heroName} {2 * 2}</h1>
 }
