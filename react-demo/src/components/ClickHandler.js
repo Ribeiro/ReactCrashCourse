@@ -1,6 +1,6 @@
 export const ClickHandler = () => {
-    const clickHandler = () => {
-        console.log('button clicked')
+    const clickHandler = (event) => {
+        console.log('button clicked', event)
     }
     return <div>
         <button onClick={clickHandler}>Click</button>
