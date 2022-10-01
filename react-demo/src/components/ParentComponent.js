@@ -6,6 +6,6 @@ export const ParentComponent = () => {
 
     }
 
-    return <ChildComponent />
+    return <ChildComponent greetHandler={greetParent} />
 
 }

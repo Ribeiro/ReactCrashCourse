@@ -1,7 +1,6 @@
-export const ChildComponent = () => {
+export const ChildComponent = (props) => {
     return <div>
-        <button>Greet Parent</button>
-
+        <button onClick={props.greetHandler}>Greet Parent</button>
     </div>
 
 }
