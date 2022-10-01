@@ -1,8 +1,8 @@
 import { ChildComponent } from "./ChildComponent"
 
 export const ParentComponent = () => {
-    const greetParent = () => {
-        alert('Hello parent')
+    const greetParent = (childName) => {
+        alert(`Hello parent ${childName}`)
 
     }
 
