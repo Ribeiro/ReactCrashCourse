@@ -1,4 +1,6 @@
 import './App.css';
+import './appStyles.css';
+import styles from './appStyles.module.css'
 import { Inline } from './components/Inline';
 //import { StyleSheet } from './components/StyleSheet'
 //import { NameList } from './components/NameList';
@@ -27,6 +29,8 @@ function App() {
       {/* <NameList /> */}
       {/* <StyleSheet /> */}
       <Inline />
+      <h1 className='error'>Error</h1>
+      <h1 className={styles.success}>Success</h1>
     </div>
   );
 }
