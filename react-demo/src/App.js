@@ -1,6 +1,6 @@
 import './App.css';
 import NAMES from './components/data.json'
-import { userState, useState } from 'react'
+import { useState, useTransition } from 'react'
 //import { PostForm } from './components/PostForm';
 //import './appStyles.css';
 // import styles from './appStyles.module.css'
@@ -18,8 +18,11 @@ import { userState, useState } from 'react'
 
 function App() {
   const [query, setQuery] = useState('')
+  const [inputValue, setInputValue] = useState('')
+  const [isPending, startTransition] = useTransition()
   const changeHandler = (event) => {
-    setQuery(event.target.value)
+    setInputValue(event.target.value)
+    startTransition(() => setQuery(event.target.value))
   }
   const filteredNames = NAMES.filter(item => {
     return item.first_name.includes(query) || item.last_name.includes(query)
@@ -46,7 +49,8 @@ function App() {
       {/* <Form /> */}
       {/* <PostList /> */}
       {/* <PostForm /> */}
-      <input type='text' value={query} onChange={changeHandler} />
+      <input type='text' value={inputValue} onChange={changeHandler} />
+      {isPending && <p>Updating list...</p>}
       {
         filteredNames.map((item) => (
           <p key={item.id}>{item.first_name} {item.last_name}</p>
