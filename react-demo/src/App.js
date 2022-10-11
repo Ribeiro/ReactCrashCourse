@@ -1,5 +1,7 @@
 import './App.css';
-import { PostForm } from './components/PostForm';
+import NAMES from './components/data.json'
+import { userState, useState } from 'react'
+//import { PostForm } from './components/PostForm';
 //import './appStyles.css';
 // import styles from './appStyles.module.css'
 //import { Inline } from './components/Inline';
@@ -15,6 +17,13 @@ import { PostForm } from './components/PostForm';
 
 
 function App() {
+  const [query, setQuery] = useState('')
+  const changeHandler = (event) => {
+    setQuery(event.target.value)
+  }
+  const filteredNames = NAMES.filter(item => {
+    return item.first_name.includes(query) || item.last_name.includes(query)
+  })
   return (
     <div className="App">
       {/* <Greet name='Bruce' heroName='Batman' />
@@ -36,7 +45,13 @@ function App() {
       <h1 className={styles.success}>Success</h1> */}
       {/* <Form /> */}
       {/* <PostList /> */}
-      <PostForm />
+      {/* <PostForm /> */}
+      <input type='text' value={query} onChange={changeHandler} />
+      {
+        filteredNames.map((item) => (
+          <p key={item.id}>{item.first_name} {item.last_name}</p>
+        ))
+      }
     </div>
   );
 }
